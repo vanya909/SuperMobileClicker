@@ -5,10 +5,10 @@ namespace Assets.LearnMaterials_2.Scripts
 {
     public class DeleteChildScript : SampleScript
     {
-        /*public DeleteChildScript(Transform tar) 
+        private void Start()
         {
-            this.target = tar;
-        }*/
+            target = this.transform;
+        }
 
         private Transform target;
         public override void Use()
