@@ -8,7 +8,7 @@ public class RotateScript : SampleScript
 
 
     [Range(0, 60)]
-    public float speed = 10f;
+    public float time = 10f;
 
     [ContextMenu("Rotate")]
     public override void Use()
@@ -22,10 +22,10 @@ public class RotateScript : SampleScript
         Quaternion start = transform.rotation;
         Quaternion target = start * Quaternion.Euler(rotationAngles);
 
-        while (true)
+        while (currentTime < time)
         {
             currentTime += Time.deltaTime;
-            transform.rotation = Quaternion.Lerp(start, target, currentTime / speed);
+            transform.rotation = Quaternion.Lerp(start, target, currentTime / (time-1));
             yield return null;
         }
         
