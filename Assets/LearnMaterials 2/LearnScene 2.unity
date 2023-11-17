@@ -235,6 +235,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 780059476711883183, guid: d9115fc0b168d924a8e7e5f9ea27a212, type: 3}
+      propertyPath: targets.Array.data[0].targetGO
+      value: 
+      objectReference: {fileID: 185947461}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9115fc0b168d924a8e7e5f9ea27a212, type: 3}
 --- !u!1 &173058925
@@ -332,6 +336,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173058925}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &185947461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2991671658122308599, guid: 239b4ac6024ccb342a2c5c73b4b679e9, type: 3}
+  m_PrefabInstance: {fileID: 1486023907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &215980171 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5187553974156704790, guid: a64f0fa7fad372f42824fcfdab49fdce, type: 3}
