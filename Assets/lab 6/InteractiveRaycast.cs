@@ -1,9 +1,9 @@
 using UnityEngine;
-using UnityEngineInternal;
 
 public class InteractiveRaycast : MonoBehaviour
 {
     public GameObject prefab = null;
+    public InteractiveBox buffer = null;
 
     private void Update()
     {
@@ -12,27 +12,37 @@ public class InteractiveRaycast : MonoBehaviour
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit)){
-                var gameObject = hit.transform.gameObject;
+            if (Physics.Raycast(ray, out hit))
+            {
+                GameObject gameObject = hit.transform.gameObject;
 
-                if (hit.collider.tag == "InteractivePlane") {
+                if (hit.collider.tag == "InteractivePlane")
+                {
                     Instantiate(prefab, hit.point + hit.normal, Quaternion.identity);
-                } else if (gameObject.GetComponent("InteracriveBox") != null) {
-                    if (prefab != null) {
-                        InteractiveBox prefabInteractiveBox = (InteractiveBox)prefab.GetComponent("InteractiveBox");
-                        ((InteractiveBox)gameObject.GetComponent("InteracriveBox")).AddNext(prefabInteractiveBox);
-                        prefab = null;
-                    } else {
-                        prefab = gameObject;
+                }
+                else if (gameObject.GetComponent<InteractiveBox>() != null)
+                {
+                    InteractiveBox nextbox = gameObject.GetComponent<InteractiveBox>();
+                    if (buffer != null)
+                    {
+                        nextbox.AddNext(buffer);
+
+                        buffer = null;
+                    }
+                    else
+                    {
+                        buffer = gameObject.GetComponent<InteractiveBox>();
+
                     }
                 }
             }
-        } else if (Input.GetMouseButton(1))
+        }
+        else if (Input.GetMouseButton(1))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit) && hit.transform.gameObject.GetComponent("InteractiveBox") != null)
             {
                 Destroy(hit.transform.gameObject);
             }

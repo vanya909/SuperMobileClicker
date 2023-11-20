@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.Profiling;
 using UnityEngine;
 
 public class MoveScript : SampleScript

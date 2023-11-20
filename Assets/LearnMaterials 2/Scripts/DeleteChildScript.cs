@@ -21,16 +21,16 @@ namespace Assets.LearnMaterials_2.Scripts
         }
         private IEnumerator DelandScale(GameObject o)
         {
-            float duration = 1f; 
+            float duration = 1f;
             float t = 0f;
-            Vector3 scale = o.transform.localScale; 
+            Vector3 scale = o.transform.localScale;
             while (t < 1f)
             {
                 t += Time.deltaTime / duration;
                 o.transform.localScale = Vector3.Lerp(scale, Vector3.zero, t);
                 yield return null;
             }
-            Destroy(o); 
+            Destroy(o);
         }
 
     }

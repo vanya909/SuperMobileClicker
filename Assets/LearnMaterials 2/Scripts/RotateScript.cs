@@ -25,9 +25,9 @@ public class RotateScript : SampleScript
         while (currentTime < time)
         {
             currentTime += Time.deltaTime;
-            transform.rotation = Quaternion.Lerp(start, target, currentTime / (time-1));
+            transform.rotation = Quaternion.Lerp(start, target, currentTime / (time - 1));
             yield return null;
         }
-        
+
     }
 }

@@ -53,7 +53,7 @@ public class GameObjectActivator : MonoBehaviour
     #region Материал ещё не изучен
     private void OnDrawGizmos()
     {
-        if(debug)
+        if (debug)
         {
             Gizmos.color = Color.gray;
             Gizmos.DrawSphere(transform.position, 0.3f);

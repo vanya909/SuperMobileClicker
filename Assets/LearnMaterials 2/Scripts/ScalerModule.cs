@@ -7,9 +7,9 @@ public class ScalerModule : MonoBehaviour
     [Header("Модуль")]
 
     [SerializeField]
-    private Vector3 targetScale = new Vector3(2,2,2);
+    private Vector3 targetScale = new Vector3(2, 2, 2);
 
-    [SerializeField, Range(0,1)]
+    [SerializeField, Range(0, 1)]
     private float changeSpeed;
 
     private Vector3 defaultScale;
@@ -43,7 +43,7 @@ public class ScalerModule : MonoBehaviour
     {
         Vector3 start = myTransform.lossyScale;
         float t = 0;
-        while(t < 1)
+        while (t < 1)
         {
             t += Time.deltaTime * changeSpeed;
             myTransform.localScale = Vector3.Lerp(start, target, t);
